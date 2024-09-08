@@ -27,6 +27,9 @@ class UserFactory extends Factory
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
+            'address' => $this->faker->address(), // Genera una dirección aleatoria
+            'phone' => $this->faker->phoneNumber(), // Genera un número de teléfono aleatorio
+            'status' => $this->faker->numberBetween(0, 1),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
         ];

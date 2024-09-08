@@ -16,8 +16,11 @@ class MovieTypeFactory extends Factory
      */
     public function definition(): array
     {
+        $categories = config('data.movies.es');
         return [
-            //
+            'title' => $this->faker->word(), // Genera una palabra aleatoria para el título
+            'status' => $this->faker->numberBetween(0, 1), // Genera un estado aleatorio (0 o 1)
+            'category' => $this->faker->randomElement($categories),
         ];
     }
 }

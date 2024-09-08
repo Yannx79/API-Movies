@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Movie;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,9 @@ class CassetteFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'copy_number' => $this->faker->randomNumber(),
+            'status' => $this->faker->randomElement([0, 1]), // 0 for inactive, 1 for active
+            'movie_id' => Movie::inRandomOrder()->first()->id,
         ];
     }
 }

@@ -17,7 +17,9 @@ class ActorFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->name(), // Genera un nombre aleatorio
+            'birth_date' => $this->faker->date(), // Genera una fecha de nacimiento aleatoria
+            'status' => $this->faker->numberBetween(0, 1),
         ];
     }
 }
